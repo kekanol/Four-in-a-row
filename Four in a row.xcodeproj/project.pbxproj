@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC048C3525DFDA330078CF84 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC048C3425DFDA330078CF84 /* GameBoard.swift */; };
 		EC57670025BAC38B00602C9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5766FF25BAC38B00602C9C /* AppDelegate.swift */; };
 		EC57670425BAC38B00602C9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57670325BAC38B00602C9C /* ViewController.swift */; };
 		EC57670925BAC39200602C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC57670825BAC39200602C9C /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC048C3425DFDA330078CF84 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		EC5766FC25BAC38B00602C9C /* Four in a row.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four in a row.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5766FF25BAC38B00602C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC57670325BAC38B00602C9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				EC57670325BAC38B00602C9C /* ViewController.swift */,
 				ECD0D70C25BB158B00AC6DFA /* Circle.swift */,
 				ECD0D72525BB29BC00AC6DFA /* Cell.swift */,
+				EC048C3425DFDA330078CF84 /* GameBoard.swift */,
 				ECD0D72825BB36BB00AC6DFA /* Constants.swift */,
 				EC57670825BAC39200602C9C /* Assets.xcassets */,
 				EC57670A25BAC39200602C9C /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 				EC57670425BAC38B00602C9C /* ViewController.swift in Sources */,
 				ECD0D72625BB29BC00AC6DFA /* Cell.swift in Sources */,
 				ECD0D70D25BB158B00AC6DFA /* Circle.swift in Sources */,
+				EC048C3525DFDA330078CF84 /* GameBoard.swift in Sources */,
 				EC57670025BAC38B00602C9C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

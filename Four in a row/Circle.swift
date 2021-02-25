@@ -9,7 +9,11 @@ import UIKit
 
 final class Circle: UIView {
     
-    private var color: UIColor
+    var color: UIColor = .clear {
+        didSet {
+            setupUI()
+        }
+    }
     
     
     init(color: UIColor) {

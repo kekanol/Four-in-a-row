@@ -9,8 +9,15 @@ import UIKit
 
 final class Cell : UIView {
     
+    var stroke: Int
+    var row: Int
+    let preCircle = Circle(color: UIColor.black.withAlphaComponent(0))
+    var isColored = false
+    var isEmpty: Bool = true
     
-    init() {
+    init(stroke: Int, row: Int) {
+        self.stroke = stroke
+        self.row = row
         super.init(frame: .zero)
         setupUI()
     }
@@ -19,14 +26,18 @@ final class Cell : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
+    private func setupUI() {
         self.frame.size = CGSize(width: cellSize, height: cellSize)
+        self.addSubview(preCircle)
+        preCircle.frame = self.bounds
         let image = UIImage(named: "cell")
         let imageview = UIImageView(image: image)
         imageview.frame = self.bounds
         self.addSubview(imageview)
-
-        print(self.frame.size)
+    }
+    
+    @objc func touched(color: UIColor) {
+        self.preCircle.color = color
     }
     
 }

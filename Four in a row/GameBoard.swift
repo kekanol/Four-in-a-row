@@ -14,6 +14,7 @@ final class BoardGame: UIView {
     let heightCount: Int = 5
     
     var cellArray: [[Cell]] = []
+    var preCellArray : [Cell] = []
     
     init() {
         super.init(frame: .zero)
@@ -21,9 +22,11 @@ final class BoardGame: UIView {
     }
     
     func setupUI() {
-        
         for x in 0...widthCount {
             cellArray.append([])
+            let preCell = Cell(row: x, isPrecell: true)
+            preCell.isPreCell = true
+            preCellArray.append(preCell)
             for y in 0...heightCount {
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.setCell(_:)))
                 let cell = Cell(stroke: y, row: x)
@@ -42,44 +45,65 @@ final class BoardGame: UIView {
     @objc func setCell(_ sender: UITapGestureRecognizer) {
         let checked = sender.view as! Cell
         var lastCell = findLastCell(cell: checked)
-        
-        if lastCell.isColored {
-            lastCell = makeCell(lastCell)
+        if lastCell.stroke == 0 && lastCell.isEmpty == false {
+            self.springOnTop(of: lastCell)
         } else {
-            lastCell = colorCell(lastCell)
+            if lastCell.isColored {
+                lastCell = makeCell(lastCell)
+            } else {
+                lastCell = colorCell(lastCell)
+            }
+            cellArray[lastCell.row][lastCell.stroke] = lastCell
         }
-        cellArray[lastCell.row][lastCell.stroke] = lastCell
         draw()
     }
     
+    private func springOnTop(of lastCell: Cell) {
+        clearBoard()
+        let animatingCell = preCellArray[lastCell.row]
+        animatingCell.isColored = true
+        animatingCell.circle.color = .yellow
+        Animation(with: animatingCell).springAnimation()
+    }
     
     private func makeCell(_ cell: Cell) -> Cell {
         colorRowOf(cell, in: .clear)
-        let circle = Circle(color: .yellow)
-        circle.frame = cell.bounds
-        cell.insertSubview(circle, at: 0)
+        preCellArray[cell.row].isColored = false
+        preCellArray[cell.row].circle.color = .clear
+        cell.circle.color = .yellow
+        Animation(with: cell.circle).goDownAnimation(of: cell)
         cell.isEmpty = false
         return cell
     }
     
     
     private func colorCell(_ cell: Cell) -> Cell {
-        cellArray.forEach { row in
-            row.forEach { cell in
-                cell.isColored = false
-                cell.preCircle.color = .clear
-            }
-        }
+        self.clearBoard()
+        preCellArray[cell.row].isColored = true
+        preCellArray[cell.row].circle.color = UIColor.yellow.withAlphaComponent(1)
         colorRowOf(cell, in: UIColor.black.withAlphaComponent(0.5))
-        cell.preCircle.color = UIColor.yellow.withAlphaComponent(0.7)
+        cell.circle.color = UIColor.yellow.withAlphaComponent(0.7)
         cell.isColored = true
         return cell
+    }
+    
+    private func clearBoard() {
+        cellArray.forEach { row in
+            preCellArray[row.first?.row ?? row.count - 1].isColored = false
+            preCellArray[row.first?.row ?? row.count - 1].circle.color = .clear
+            row.forEach { cell in
+                if cell.isEmpty {
+                    cell.isColored = false
+                    cell.circle.color = .clear
+                }
+            }
+        }
     }
     
     private func colorRowOf(_ cell: Cell, in color: UIColor) {
         cellArray[cell.row].forEach { rowCell in
             if rowCell.isEmpty{
-                rowCell.preCircle.color = color
+                rowCell.circle.color = color
             }
         }
     }
@@ -115,6 +139,10 @@ final class BoardGame: UIView {
         
         for sub in self.subviews {
             sub.removeFromSuperview()
+        }
+        
+        for cell in preCellArray {
+            rasstavit(cell)
         }
         
         for row in cellArray {

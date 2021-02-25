@@ -30,6 +30,6 @@ final class Circle: UIView {
     private func setupUI() {
         self.layer.backgroundColor = self.color.cgColor
         self.layer.borderColor = self.color.cgColor
-        self.layer.cornerRadius = self.frame.size.height / 2
+        self.layer.cornerRadius = self.frame.size.height * 0.5
     }
 }

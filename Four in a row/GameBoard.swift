@@ -13,6 +13,7 @@ final class BoardGame: UIView {
     let widthCount: Int = 6
     let heightCount: Int = 5
     
+    var turnOfFirstPlayer: Bool = true
     var cellArray: [[Cell]] = []
     var preCellArray : [Cell] = []
     
@@ -40,7 +41,7 @@ final class BoardGame: UIView {
         }
         self.draw()
     }
-   
+    
     
     @objc func setCell(_ sender: UITapGestureRecognizer) {
         let checked = sender.view as! Cell
@@ -50,19 +51,28 @@ final class BoardGame: UIView {
         } else {
             if lastCell.isColored {
                 lastCell = makeCell(lastCell)
+                turnOfFirstPlayer = !turnOfFirstPlayer
             } else {
                 lastCell = colorCell(lastCell)
             }
             cellArray[lastCell.row][lastCell.stroke] = lastCell
         }
         draw()
+        WinGame(self).checkWin()
+
     }
+    
+    
     
     private func springOnTop(of lastCell: Cell) {
         clearBoard()
         let animatingCell = preCellArray[lastCell.row]
         animatingCell.isColored = true
-        animatingCell.circle.color = .yellow
+        if turnOfFirstPlayer {
+            animatingCell.circle.color = .yellow
+        } else {
+            animatingCell.circle.color = .red
+        }
         Animation(with: animatingCell).springAnimation()
     }
     
@@ -70,7 +80,11 @@ final class BoardGame: UIView {
         colorRowOf(cell, in: .clear)
         preCellArray[cell.row].isColored = false
         preCellArray[cell.row].circle.color = .clear
-        cell.circle.color = .yellow
+        if turnOfFirstPlayer {
+            cell.circle.color = .yellow
+        } else {
+            cell.circle.color = .red
+        }
         Animation(with: cell.circle).goDownAnimation(of: cell)
         cell.isEmpty = false
         return cell
@@ -79,10 +93,16 @@ final class BoardGame: UIView {
     
     private func colorCell(_ cell: Cell) -> Cell {
         self.clearBoard()
+        var color: UIColor
+        if turnOfFirstPlayer {
+            color = .yellow
+        } else {
+            color = .red
+        }
         preCellArray[cell.row].isColored = true
-        preCellArray[cell.row].circle.color = UIColor.yellow.withAlphaComponent(1)
+        preCellArray[cell.row].circle.color = color.withAlphaComponent(1)
         colorRowOf(cell, in: UIColor.black.withAlphaComponent(0.5))
-        cell.circle.color = UIColor.yellow.withAlphaComponent(0.7)
+        cell.circle.color = color.withAlphaComponent(0.5)
         cell.isColored = true
         return cell
     }
@@ -154,7 +174,7 @@ final class BoardGame: UIView {
     
     
     private func rasstavit(_ cell: Cell) {
-        self.addSubview(cell)
+        self.insertSubview(cell, at: 0)
         cell.frame.origin = CGPoint(x: cellSize * CGFloat(cell.row), y: cellSize * CGFloat(cell.stroke))
     }
     
@@ -164,4 +184,5 @@ final class BoardGame: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

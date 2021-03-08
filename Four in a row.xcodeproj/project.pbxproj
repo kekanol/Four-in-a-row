@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC048C3525DFDA330078CF84 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC048C3425DFDA330078CF84 /* GameBoard.swift */; };
 		EC2A3A7325E7E59B00A47337 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A3A7225E7E59B00A47337 /* Animations.swift */; };
+		EC3E0F7F25F5E054005AECF1 /* WinGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3E0F7E25F5E054005AECF1 /* WinGame.swift */; };
 		EC57670025BAC38B00602C9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5766FF25BAC38B00602C9C /* AppDelegate.swift */; };
 		EC57670425BAC38B00602C9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57670325BAC38B00602C9C /* ViewController.swift */; };
 		EC57670925BAC39200602C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC57670825BAC39200602C9C /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		EC048C3425DFDA330078CF84 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		EC2A3A7225E7E59B00A47337 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		EC3E0F7E25F5E054005AECF1 /* WinGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinGame.swift; sourceTree = "<group>"; };
 		EC5766FC25BAC38B00602C9C /* Four in a row.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four in a row.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5766FF25BAC38B00602C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC57670325BAC38B00602C9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				ECD0D70C25BB158B00AC6DFA /* Circle.swift */,
 				ECD0D72525BB29BC00AC6DFA /* Cell.swift */,
 				EC048C3425DFDA330078CF84 /* GameBoard.swift */,
+				EC3E0F7E25F5E054005AECF1 /* WinGame.swift */,
 				ECD0D72825BB36BB00AC6DFA /* Constants.swift */,
 				EC2A3A7225E7E59B00A47337 /* Animations.swift */,
 				EC57670825BAC39200602C9C /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3E0F7F25F5E054005AECF1 /* WinGame.swift in Sources */,
 				ECD0D72925BB36BB00AC6DFA /* Constants.swift in Sources */,
 				EC57670425BAC38B00602C9C /* ViewController.swift in Sources */,
 				ECD0D72625BB29BC00AC6DFA /* Cell.swift in Sources */,

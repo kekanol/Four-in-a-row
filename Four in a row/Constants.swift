@@ -8,3 +8,4 @@ import UIKit
 
 let screenSize = UIScreen.main.bounds
 let cellSize = (UIScreen.main.bounds.width / 7).rounded() - 1
+let circleSize = cellSize * 0.84

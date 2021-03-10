@@ -17,14 +17,20 @@ final class WinGame {
     }
     
     func checkWin() {
+        var count = 0
         for row in boardGame!.cellArray {
             for cell in row {
                 if !cell.isEmpty {
+                    count += 1
                     if checkVertical(cell: cell) || checkHorizontal(cell: cell) || checktopDiag(cell: cell) || checkdownDiag(cell: cell) {
                         boardGame?.isGameWon = true
+                        
                     }
                 }
             }
+        }
+        if count == 42 {
+            boardGame?.isDraw = true
         }
     }
     

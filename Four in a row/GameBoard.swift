@@ -18,6 +18,14 @@ final class BoardGame: UIView {
     var preCellArray : [Cell] = []
     var wingame: WinGame?
     
+    var isDraw: Bool = false {
+        didSet {
+            if isDraw {
+                self.draw()
+            }
+        }
+    }
+    
     var isGameWon = false {
         didSet {
             if isGameWon {
@@ -50,7 +58,7 @@ final class BoardGame: UIView {
                 cellArray[x].append(cell)
             }
         }
-        self.draw()
+        self.redraw()
     }
     
     @objc func restart() {
@@ -63,8 +71,17 @@ final class BoardGame: UIView {
         self.setupUI()
     }
     
+    func draw() {
+        for row in cellArray {
+            for cell in row {
+                Animation(with: cell.circle).drawAnimation()
+                cell.isUserInteractionEnabled = false
+            }
+        }
+    }
+    
     func win() {
-        self.draw()
+        self.redraw()
         cellArray.forEach { row in
             row.forEach { cell in
                 cell.isUserInteractionEnabled = false
@@ -93,7 +110,7 @@ final class BoardGame: UIView {
             }
             cellArray[lastCell.row][lastCell.stroke] = lastCell
         }
-        draw()
+        redraw()
         self.wingame!.checkWin()
         
     }
@@ -189,7 +206,7 @@ final class BoardGame: UIView {
     }
     
     
-    func draw() {
+    func redraw() {
         
         for sub in self.subviews {
             sub.removeFromSuperview()

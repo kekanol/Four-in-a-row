@@ -16,10 +16,21 @@ final class BoardGame: UIView {
     var turnOfFirstPlayer: Bool = true
     var cellArray: [[Cell]] = []
     var preCellArray : [Cell] = []
+    var wingame: WinGame?
+    
+    var isGameWon = false {
+        didSet {
+            if isGameWon {
+                self.win()
+            }
+        }
+    }
     
     init() {
         super.init(frame: .zero)
         setupUI()
+        Animation(with: self).showUp()
+        wingame = WinGame(self)
     }
     
     func setupUI() {
@@ -42,6 +53,31 @@ final class BoardGame: UIView {
         self.draw()
     }
     
+    @objc func restart() {
+        wingame!.winRow.removeAll()
+        self.cellArray.removeAll()
+        self.preCellArray.removeAll()
+        self.isGameWon = false
+        self.turnOfFirstPlayer = true
+        Animation(with: self).showUp()
+        self.setupUI()
+    }
+    
+    func win() {
+        self.draw()
+        cellArray.forEach { row in
+            row.forEach { cell in
+                cell.isUserInteractionEnabled = false
+                if !wingame!.winRow.contains(cell) {
+                    cell.isEmpty = true
+                    Animation(with: cell).pipDisapearAnimation()
+                }
+            }
+        }
+        wingame?.winRow.forEach { cell in
+            Animation(with: cell).pipCellAnimation()
+        }
+    }
     
     @objc func setCell(_ sender: UITapGestureRecognizer) {
         let checked = sender.view as! Cell
@@ -58,11 +94,9 @@ final class BoardGame: UIView {
             cellArray[lastCell.row][lastCell.stroke] = lastCell
         }
         draw()
-        WinGame(self).checkWin()
-
+        self.wingame!.checkWin()
+        
     }
-    
-    
     
     private func springOnTop(of lastCell: Cell) {
         clearBoard()
@@ -85,7 +119,7 @@ final class BoardGame: UIView {
         } else {
             cell.circle.color = .red
         }
-        Animation(with: cell.circle).goDownAnimation(of: cell)
+        Animation(with: cell).goDownAnimation()
         cell.isEmpty = false
         return cell
     }
@@ -177,9 +211,6 @@ final class BoardGame: UIView {
         self.insertSubview(cell, at: 0)
         cell.frame.origin = CGPoint(x: cellSize * CGFloat(cell.row), y: cellSize * CGFloat(cell.stroke))
     }
-    
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

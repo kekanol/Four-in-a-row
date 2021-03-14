@@ -16,8 +16,8 @@
 		EC57670C25BAC39200602C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC57670A25BAC39200602C9C /* LaunchScreen.storyboard */; };
 		EC768F2925F8FA35005831E7 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC768F2825F8FA35005831E7 /* Buttons.swift */; };
 		ECD0D70D25BB158B00AC6DFA /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD0D70C25BB158B00AC6DFA /* Circle.swift */; };
-		ECD0D72625BB29BC00AC6DFA /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD0D72525BB29BC00AC6DFA /* Cell.swift */; };
 		ECD0D72925BB36BB00AC6DFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD0D72825BB36BB00AC6DFA /* Constants.swift */; };
+		ECE1AA5B25FE88CB00EC1579 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE1AA5A25FE88CB00EC1579 /* Cell.swift */; };
 		ECE2148F25FE5EF4005EF775 /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE2148E25FE5EF4005EF775 /* Bot.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +33,8 @@
 		EC57670D25BAC39200602C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC768F2825F8FA35005831E7 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		ECD0D70C25BB158B00AC6DFA /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
-		ECD0D72525BB29BC00AC6DFA /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		ECD0D72825BB36BB00AC6DFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ECE1AA5A25FE88CB00EC1579 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		ECE2148E25FE5EF4005EF775 /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,7 +54,7 @@
 			children = (
 				EC2A3A7225E7E59B00A47337 /* Animations.swift */,
 				ECD0D70C25BB158B00AC6DFA /* Circle.swift */,
-				ECD0D72525BB29BC00AC6DFA /* Cell.swift */,
+				ECE1AA5A25FE88CB00EC1579 /* Cell.swift */,
 				EC768F2825F8FA35005831E7 /* Buttons.swift */,
 			);
 			path = Views;
@@ -165,11 +165,11 @@
 				EC3E0F7F25F5E054005AECF1 /* WinGame.swift in Sources */,
 				ECD0D72925BB36BB00AC6DFA /* Constants.swift in Sources */,
 				EC57670425BAC38B00602C9C /* ViewController.swift in Sources */,
-				ECD0D72625BB29BC00AC6DFA /* Cell.swift in Sources */,
 				ECD0D70D25BB158B00AC6DFA /* Circle.swift in Sources */,
 				EC048C3525DFDA330078CF84 /* GameBoard.swift in Sources */,
 				EC57670025BAC38B00602C9C /* AppDelegate.swift in Sources */,
 				EC768F2925F8FA35005831E7 /* Buttons.swift in Sources */,
+				ECE1AA5B25FE88CB00EC1579 /* Cell.swift in Sources */,
 				EC2A3A7325E7E59B00A47337 /* Animations.swift in Sources */,
 				ECE2148F25FE5EF4005EF775 /* Bot.swift in Sources */,
 			);

@@ -14,10 +14,11 @@
 		EC57670425BAC38B00602C9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57670325BAC38B00602C9C /* ViewController.swift */; };
 		EC57670925BAC39200602C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC57670825BAC39200602C9C /* Assets.xcassets */; };
 		EC57670C25BAC39200602C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC57670A25BAC39200602C9C /* LaunchScreen.storyboard */; };
-		EC768F2925F8FA35005831E7 /* RestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC768F2825F8FA35005831E7 /* RestartButton.swift */; };
+		EC768F2925F8FA35005831E7 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC768F2825F8FA35005831E7 /* Buttons.swift */; };
 		ECD0D70D25BB158B00AC6DFA /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD0D70C25BB158B00AC6DFA /* Circle.swift */; };
 		ECD0D72625BB29BC00AC6DFA /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD0D72525BB29BC00AC6DFA /* Cell.swift */; };
 		ECD0D72925BB36BB00AC6DFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD0D72825BB36BB00AC6DFA /* Constants.swift */; };
+		ECE2148F25FE5EF4005EF775 /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE2148E25FE5EF4005EF775 /* Bot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,11 @@
 		EC57670825BAC39200602C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC57670B25BAC39200602C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC57670D25BAC39200602C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC768F2825F8FA35005831E7 /* RestartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartButton.swift; sourceTree = "<group>"; };
+		EC768F2825F8FA35005831E7 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		ECD0D70C25BB158B00AC6DFA /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		ECD0D72525BB29BC00AC6DFA /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		ECD0D72825BB36BB00AC6DFA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ECE2148E25FE5EF4005EF775 /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC03812C25FE567A00F76D72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC2A3A7225E7E59B00A47337 /* Animations.swift */,
+				ECD0D70C25BB158B00AC6DFA /* Circle.swift */,
+				ECD0D72525BB29BC00AC6DFA /* Cell.swift */,
+				EC768F2825F8FA35005831E7 /* Buttons.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EC5766F325BAC38B00602C9C = {
 			isa = PBXGroup;
 			children = (
@@ -68,13 +81,11 @@
 			children = (
 				EC5766FF25BAC38B00602C9C /* AppDelegate.swift */,
 				EC57670325BAC38B00602C9C /* ViewController.swift */,
-				ECD0D70C25BB158B00AC6DFA /* Circle.swift */,
-				ECD0D72525BB29BC00AC6DFA /* Cell.swift */,
+				EC03812C25FE567A00F76D72 /* Views */,
 				EC048C3425DFDA330078CF84 /* GameBoard.swift */,
+				ECE2148E25FE5EF4005EF775 /* Bot.swift */,
 				EC3E0F7E25F5E054005AECF1 /* WinGame.swift */,
-				EC768F2825F8FA35005831E7 /* RestartButton.swift */,
 				ECD0D72825BB36BB00AC6DFA /* Constants.swift */,
-				EC2A3A7225E7E59B00A47337 /* Animations.swift */,
 				EC57670825BAC39200602C9C /* Assets.xcassets */,
 				EC57670A25BAC39200602C9C /* LaunchScreen.storyboard */,
 				EC57670D25BAC39200602C9C /* Info.plist */,
@@ -158,8 +169,9 @@
 				ECD0D70D25BB158B00AC6DFA /* Circle.swift in Sources */,
 				EC048C3525DFDA330078CF84 /* GameBoard.swift in Sources */,
 				EC57670025BAC38B00602C9C /* AppDelegate.swift in Sources */,
-				EC768F2925F8FA35005831E7 /* RestartButton.swift in Sources */,
+				EC768F2925F8FA35005831E7 /* Buttons.swift in Sources */,
 				EC2A3A7325E7E59B00A47337 /* Animations.swift in Sources */,
+				ECE2148F25FE5EF4005EF775 /* Bot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

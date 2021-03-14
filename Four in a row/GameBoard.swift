@@ -17,6 +17,7 @@ final class BoardGame: UIView {
     var cellArray: [[Cell]] = []
     var preCellArray : [Cell] = []
     var wingame: WinGame?
+    var lastMoves: [Cell] = []
     
     var isDraw: Bool = false {
         didSet {
@@ -69,6 +70,20 @@ final class BoardGame: UIView {
         self.turnOfFirstPlayer = true
         Animation(with: self).showUp()
         self.setupUI()
+        lastMoves.removeAll()
+    }
+    
+    @objc func cancel() {
+        if let cell = lastMoves.last {
+            cell.circle.color = .clear
+            cell.isEmpty = true
+            cell.isColored = false
+            preCellArray[cell.row].circle.color = .clear
+            colorRowOf(cell, in: .clear)
+            cellArray[cell.row][cell.stroke] = cell
+            turnOfFirstPlayer = !turnOfFirstPlayer
+            lastMoves.removeLast()
+        }
     }
     
     func draw() {
@@ -81,6 +96,7 @@ final class BoardGame: UIView {
     }
     
     func win() {
+        lastMoves.removeAll()
         self.redraw()
         cellArray.forEach { row in
             row.forEach { cell in
@@ -138,6 +154,7 @@ final class BoardGame: UIView {
         }
         Animation(with: cell).goDownAnimation()
         cell.isEmpty = false
+        lastMoves.append(cell)
         return cell
     }
     
